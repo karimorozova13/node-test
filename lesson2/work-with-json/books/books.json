@@ -1,10 +1,5 @@
 [
   {
-    "id": "u9kgwNWGi3uUUwh0b8V49",
-    "title": "Eloquent JavaScript, Third Edition",
-    "author": "Marijn Haverbeke"
-  },
-  {
     "id": "YxhM4QDxPeA3SmPHcEZPJ",
     "title": "Practical Modern JavaScript",
     "author": "Nicolas Bevacqua"
@@ -15,19 +10,9 @@
     "author": "Nicholas C. Zakas"
   },
   {
-    "id": "ck89qe3HriUDHe09TBoJ8",
-    "title": "Speaking JavaScript",
-    "author": "Axel Rauschmayer"
-  },
-  {
     "id": "e1Tpn_I3wBkLREY6wG0lb",
     "title": "Learning JavaScript Design Patterns",
     "author": "Addy Osmani"
-  },
-  {
-    "id": "Op8ApLTY0-Vn2cR0vDIwG",
-    "title": "You Don't Know JS Yet",
-    "author": "Kyle Simpson"
   },
   {
     "id": "dkJSszfrRVtLVR_MfRqcu",
@@ -38,5 +23,20 @@
     "id": "CTHE0f1kkWwqS5sL2tI8_",
     "title": "Rethinking Productivity in Software Engineering",
     "author": "Caitlin Sadowski, Thomas Zimmermann"
+  },
+  {
+    "title": "I",
+    "author": "Kari",
+    "id": "SzGDAVYG-Rb3U0KSOGir2"
+  },
+  {
+    "title": "I did it",
+    "author": "Kari Morozova",
+    "id": "JaFFH7Ff-ZtMxvbqc8aK1"
+  },
+  {
+    "title": "Commander",
+    "author": "Node Js",
+    "id": "Iu-W3ftEdX5CwCw9A5hP0"
   }
 ]

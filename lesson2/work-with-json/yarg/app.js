@@ -1,4 +1,6 @@
-const books = require("./books");
+const books = require("../books");
+const yargs = require("yargs");
+const { hideBin } = require("yargs/helpers");
 
 const invokeAction = async ({ action, id, title, author }) => {
   switch (action) {
@@ -25,31 +27,9 @@ const invokeAction = async ({ action, id, title, author }) => {
   }
 };
 
-// OLD SCHOOL
-
-console.log(process.argv);
-const actionIdx = process.argv.indexOf("--action");
-if (actionIdx) {
-  const action = process.argv[actionIdx + 1];
-  invokeAction({ action });
-}
-
-//  JUST CALL FUNCTION
-
-// invokeAction({ action: "getAll" });
-// invokeAction({ action: "getById", id: "CTHE0f1kkWwqS5sL2tI8_" });
-// invokeAction({
-//   action: "addBook",
-//   title: "Add book",
-//   author: "kari Morozova",
-// });
-// invokeAction({
-//   action: "updateById",
-//   id: "Op8ApLTY0-Vn2cR0vDIwG",
-//   title: "Update book",
-//   author: "Infinite loop",
-// });
-// invokeAction({
-//   action: "deleteById",
-//   id: "ck89qe3HriUDHe09TBoJ8",
-// });
+// YARG
+const arr = hideBin(process.argv);
+// console.log(arr);
+const { argv } = yargs(arr);
+// console.log(argv);
+invokeAction(argv);

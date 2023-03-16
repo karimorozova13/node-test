@@ -1,4 +1,5 @@
-const books = require("./books");
+const books = require("../books");
+const { program } = require("commander");
 
 const invokeAction = async ({ action, id, title, author }) => {
   switch (action) {
@@ -25,31 +26,13 @@ const invokeAction = async ({ action, id, title, author }) => {
   }
 };
 
-// OLD SCHOOL
+program
+  .option("-a, --action <type>")
+  .option("-id, --id <type>")
+  .option("-t, --title <type>")
+  .option("-au, --author <type>");
 
-console.log(process.argv);
-const actionIdx = process.argv.indexOf("--action");
-if (actionIdx) {
-  const action = process.argv[actionIdx + 1];
-  invokeAction({ action });
-}
-
-//  JUST CALL FUNCTION
-
-// invokeAction({ action: "getAll" });
-// invokeAction({ action: "getById", id: "CTHE0f1kkWwqS5sL2tI8_" });
-// invokeAction({
-//   action: "addBook",
-//   title: "Add book",
-//   author: "kari Morozova",
-// });
-// invokeAction({
-//   action: "updateById",
-//   id: "Op8ApLTY0-Vn2cR0vDIwG",
-//   title: "Update book",
-//   author: "Infinite loop",
-// });
-// invokeAction({
-//   action: "deleteById",
-//   id: "ck89qe3HriUDHe09TBoJ8",
-// });
+program.parse(process.argv);
+const options = program.opts();
+console.log(options);
+invokeAction(options);
