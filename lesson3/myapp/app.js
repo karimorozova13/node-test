@@ -2,11 +2,17 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
+// APP CONFIG
+
 app.use((req, rest, next) => {
   console.log("Middleware");
   next();
 });
 app.use(express.static(path.join(__dirname, "public")));
+// for form
+app.use(express.urlencoded({ extended: false }));
+// for JSON
+app.use(express.json());
 
 // ------------------------------------------------------------------GET
 app.get("/", (req, res) => {
@@ -38,9 +44,14 @@ app.get("/login", (req, res) => {
 // ------------------------------------------------------------------POST
 
 app.post("/login", (req, rest) => {
-  //   const { name, password } = req.body;
-  console.log(req.body);
-  //   console.log(password);
+  const { name, password } = req.body;
+  console.log(password);
+  console.log(name);
+});
+
+app.post("/login", (req, res, next) => {
+  const { email, password } = req.body;
+  // work with Json
 });
 
 // app.get("/con?tact", (req, res) => {
