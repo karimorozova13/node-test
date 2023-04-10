@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
+const fs = require("fs/promises");
 
 const app = express();
 app.use(cors());
@@ -20,7 +21,11 @@ const upload = multer({
   storage: multerConfig,
 });
 
-app.post("/api/books", upload.single("cover"), (req, res) => {
+// upload.array('cover', 8 (maxCount)) - if we send several files
+// upload.fields([{name:'cover',maxCount:2}, {name:'video',maxCount:3}]) - if I'm waiting files from different fields
+
+app.post("/api/books", upload.single("cover"), async (req, res) => {
+  await fs.rename("./temp/cover.jpg", "./public/books/cover.jpg");
   console.log(req.body);
   console.log(req.file);
 });
